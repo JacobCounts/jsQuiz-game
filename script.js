@@ -11,8 +11,8 @@ const questions = [
     correctIndex: 0,
   },
   {
-    text: "What is Tuckers dogs name?",
-    answers: ["Avery", "Deku", "Meems", "Ginger"],
+    text: "What is my dogs dogs name?",
+    answers: ["Buttons", "Scoobie", "None", "Hank"],
     correctIndex: 2,
   },
   { 
@@ -80,10 +80,29 @@ function renderQuestion() {
     //create a button
     const btn = document.createElement("button");
     // set class="btn btn-primary" on our button
-    btn.setAttribute("class", "btn btn-primary");
+    btn.setAttribute("class", "btn btn-dark");
     // set the text of our button to our answers text
     btn.textContent = answer;
     // append the button to the answers div
     answerDiv.appendChild(btn);
   }
 }
+// countDown timer
+document.addEventListener("DOMContentLoaded", () => {
+    const timeLeftDisplay = document.querySelector("#time")
+    const startBtn = document.querySelector("#start")
+    let timeLeft = 10
+
+    
+    function countDown(){
+        setInterval(function(){
+            if(timeLeft <= 0 ) {
+                clearInterval(timeLeft =0)
+            }
+            timeLeftDisplay.innerHTML = timeLeft
+            timeLeft -=1
+        }, 1000)
+    }
+startBtn.addEventListener("click", countDown)
+
+})
