@@ -12,6 +12,10 @@ body {
     justify-content: center;
     align-items: center;
     background-color: rgb(216, 206, 66);
+    background-image: url("images.jpeg/usa_3.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    
 }
 
 .container {
@@ -21,21 +25,27 @@ body {
     background-color: white;
     border-radius: 5px;
     padding: 10px;
-    box-shadow: 0 0 10px 2px;
+    box-shadow: 0 0 20px 20px;
+    background-image: url("images.jpeg/mt_rush.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* all buttons */
 .btn {
-    background-color: red;
-    border: 5px solid rgb(233, 113, 227);
+    background-color: rgb(163, 44, 44);
+    
     border-radius: 5px;
     padding: 20px 25px;
-    color: black;
+    color: white;
     outline: none;
+    font-size: 1.5rem;
+    box-shadow: 10px 15px 22px white;
     
 }
 .btn:hover {
     border-color: black;
+    transform: scale(1.10);
 }
 
 
@@ -47,31 +57,35 @@ body {
 
 /* Welcome header */
 h1, h2 {
-    color: lightseagreen;
+    color: rgb(212, 214, 216);
     font-family: 'Press Start 2P', cursive;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    text-shadow: 2px 2px 8px rgb(197, 61, 61);
 
 }
-
+/* high score button */
 #high {
-    color: rgb(255, 136, 0);
+    color: white;
     padding: 20px;
     position: fixed;
     top: 10px;
     left: 20px;
     border-radius: 5px;
+    background-color:  rgb(163, 44, 44);
+    box-shadow: 0 0 40px 10px;
 }
 #high:hover {
-    color: black;
+    color:red;
+    transform: scale(1.10);
 }
-
+/* statr button */
 #start {
     margin-left: 38%;
     margin-top: 10%;
 }
-
+/* all answer buttons */
 #answers {
     text-align: center;
     margin-top: 20%;

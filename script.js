@@ -3,6 +3,9 @@ const startPrompt = document.querySelector("#start-prompt");
 const questionContainer = document.querySelector("#question-container");
 const questionText = document.querySelector("#question-text");
 const answerDiv = document.querySelector("#answers");
+const endPrompt = document.querySelector("#end-prompt");
+const gameOver = document.querySelector(".gameOver") 
+
 
 const questions = [
   {
@@ -27,6 +30,10 @@ let questionIndex = 0;
 startBtn.addEventListener("click", handleStartClick);
 answerDiv.addEventListener("click", handleAnswerClick);
 
+
+
+
+
 function handleAnswerClick(e) {
   e.preventDefault();
 
@@ -42,16 +49,27 @@ function handleAnswerClick(e) {
   // compare to the answer the user selected
   if (userAnswer === correctAnswer) {
     // if they answered correctly move onto the next question
-    console.log("That was correct");
+    
   } else {
+      
+
     // else remove 10 seconds from the time move onto next question
-    console.log("That was incorrect");
+    
   }
+
   questionIndex++;
   // do we even have anymore question to render?
   // if not end the game
+  if (questionIndex >= questions.length) {
+    endScreen();
+    console.log("no more question")
+  }
   // else render the question
-  renderQuestion();
+  else {
+    console.log("more")
+    renderQuestion();
+  }
+
 }
 
 function handleStartClick(e) {
@@ -67,6 +85,8 @@ function handleStartClick(e) {
 function renderQuestion() {
   // create a variable to store our current question
   const currentQuestion = questions[questionIndex];
+
+  
 
   //set the text content for our html element that displays our question
   questionText.textContent = currentQuestion.text;
@@ -88,7 +108,7 @@ function renderQuestion() {
   }
 }
 // countDown timer
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded",  function() {
     const timeLeftDisplay = document.querySelector("#time")
     const startBtn = document.querySelector("#start")
     let timeLeft = 10
@@ -106,3 +126,10 @@ document.addEventListener("DOMContentLoaded", () => {
 startBtn.addEventListener("click", countDown)
 
 })
+
+function endScreen () {
+  questionContainer.style.display = "none";
+  gameOver.style.display = "block";
+  timer.style.display = "none";
+
+}
