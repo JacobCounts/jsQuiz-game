@@ -5,30 +5,82 @@ const questionText = document.querySelector("#question-text");
 const answerDiv = document.querySelector("#answers");
 const endPrompt = document.querySelector("#end-prompt");
 const gameOver = document.querySelector(".gameOver") 
-
+const score = document.querySelector("#score");
 
 const questions = [
   {
-    text: "Is the sky blue?",
-    answers: ["True", "False"],
-    correctIndex: 0,
+    text: "How many stripes are on the American flag?",
+    answers: ["50", "10", "13", "15"],
+    correctIndex: 2,
   },
   {
-    text: "What is my dogs dogs name?",
-    answers: ["Buttons", "Scoobie", "None", "Hank"],
+    text: "Who was the first American president?",
+    answers: ["Abraham Lincoln", "John Adams", "Andrew Jackson", "George Washington"],
+    correctIndex: 3,
+  },
+  { 
+    text: "When was the Declaration of Independence signed?",
+    answers: ["July 4th 1776", "July 4th 1786", "July 4th 1906", "July 4th 1766"],
+    correctIndex: 0,
+  },
+  { 
+    text: "In what state is Mount Rushmore located?",
+    answers: ["Noth Dakota", "Iowa", "South Dakota", "Montana"],
     correctIndex: 2,
   },
   { 
-    text: "What is my cats name?",
-    answers: ["Sunday", "Monday", "Wednesday", "Friday"],
+    text: "Which president is on the $50 bill?",
+    answers: ["Franklin", "Grant", "Jefferson", "Jackson"],
+    correctIndex: 1,
+  },
+  { 
+    text: "What state is the Liberty Bell located?",
+    answers: ["Pennsylvania", "Washington DC", "California", "Florida"],
+    correctIndex: 0,
+  },
+  { 
+    text: "What is the longest river in the USA?",
+    answers: ["Mississippi", "Colorado", "Yukon", "Missouri"],
+    correctIndex: 3,
+  },
+  { 
+    text: "Where is the Statue of Liberty located?",
+    answers: ["New York", "New Jersey", "Washington DC", "Pennsylvania"],
+    correctIndex: 0,
+  },
+  { 
+    text: "What year was the Boston Tea Party?",
+    answers: ["1873", "1809", "1773", "1776"],
     correctIndex: 2,
   },
+  { 
+    text: "Who created the first American flag ?",
+    answers: ["Rick Ross", "George Washington", "Bob Ross", "Betsy Ross"],
+    correctIndex: 3,
+  },
+ 
+  
+
 ];
+
+
+
+
+
+
+
+
+
+
+
+
+
 let questionIndex = 0;
 
 // registering a click event handler
 startBtn.addEventListener("click", handleStartClick);
 answerDiv.addEventListener("click", handleAnswerClick);
+
 
 
 
@@ -48,6 +100,11 @@ function handleAnswerClick(e) {
   const correctAnswer = question.answers[question.correctIndex];
   // compare to the answer the user selected
   if (userAnswer === correctAnswer) {
+    
+
+    
+
+   
     // if they answered correctly move onto the next question
     
   } else {
@@ -56,6 +113,8 @@ function handleAnswerClick(e) {
     // else remove 10 seconds from the time move onto next question
     
   }
+
+ 
 
   questionIndex++;
   // do we even have anymore question to render?
@@ -80,6 +139,8 @@ function handleStartClick(e) {
   questionContainer.style.display = "block";
 
   renderQuestion();
+
+
 }
 
 function renderQuestion() {
@@ -115,7 +176,7 @@ document.addEventListener("DOMContentLoaded",  function() {
 
     
     function countDown(){
-        setInterval(function(){
+        setInterval(function() {
             if(timeLeft <= 0 ) {
                 clearInterval(timeLeft =0)
             }
@@ -127,9 +188,16 @@ startBtn.addEventListener("click", countDown)
 
 })
 
+
+
+
+// end of game 
 function endScreen () {
   questionContainer.style.display = "none";
   gameOver.style.display = "block";
   timer.style.display = "none";
 
 }
+
+
+
