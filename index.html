@@ -19,7 +19,7 @@
       </div> 
       
       <div class="score">
-        <button class="button" id="score-btn">SCORE: 0</button>
+        <button class="button" >SCORE: <span id="score-btn">0</span></button>
         </div>  
           
 
@@ -40,15 +40,18 @@
           </div> 
 
           <div class="gameOver" style="display: none">
+
             <div id ="end-prompt">
               <h1>GAME OVER</h1>
               <label for="INITIALS">
                 <input type="text" id="final">
               </label>
-              <button class="button" id="submit">SUBMIT HIGH SCORE</button>
+              <button class="button" id="submit-high">SUBMIT HIGH SCORE</button>
             </div>
           </div>
-          
+          <div id = "highScores" style ="display:none">
+          <ul id ="highScoreList"></ul>
+          </div> 
           
           <div class="timer">Time Remaining: <span id="time">30</span></div>
           
