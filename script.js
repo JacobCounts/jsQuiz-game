@@ -5,7 +5,7 @@ const questionText = document.querySelector("#question-text");
 const answerDiv = document.querySelector("#answers");
 const endPrompt = document.querySelector("#end-prompt");
 const gameOver = document.querySelector(".gameOver") 
-const score = document.querySelector("#score");
+const userScoreEl = document.querySelector("#score");
 
 const questions = [
   {
@@ -64,26 +64,11 @@ const questions = [
 ];
 
 
-
-
-
-
-
-
-
-
-
-
-
 let questionIndex = 0;
 
 // registering a click event handler
 startBtn.addEventListener("click", handleStartClick);
 answerDiv.addEventListener("click", handleAnswerClick);
-
-
-
-
 
 
 function handleAnswerClick(e) {
@@ -100,32 +85,24 @@ function handleAnswerClick(e) {
   const correctAnswer = question.answers[question.correctIndex];
   // compare to the answer the user selected
   if (userAnswer === correctAnswer) {
-    
-
-    
-
-   
     // if they answered correctly move onto the next question
     
   } else {
+    // else remove 10 seconds from the time move onto next question
+  }
       
 
-    // else remove 10 seconds from the time move onto next question
     
-  }
-
- 
-
   questionIndex++;
   // do we even have anymore question to render?
   // if not end the game
   if (questionIndex >= questions.length) {
     endScreen();
-    console.log("no more question")
+    //console.log("no more question")
   }
   // else render the question
   else {
-    console.log("more")
+    //console.log("more questions")
     renderQuestion();
   }
 
@@ -139,16 +116,12 @@ function handleStartClick(e) {
   questionContainer.style.display = "block";
 
   renderQuestion();
-
-
 }
+
 
 function renderQuestion() {
   // create a variable to store our current question
   const currentQuestion = questions[questionIndex];
-
-  
-
   //set the text content for our html element that displays our question
   questionText.textContent = currentQuestion.text;
 
@@ -172,7 +145,7 @@ function renderQuestion() {
 document.addEventListener("DOMContentLoaded",  function() {
     const timeLeftDisplay = document.querySelector("#time")
     const startBtn = document.querySelector("#start")
-    let timeLeft = 10
+    let timeLeft = 30
 
     
     function countDown(){
@@ -188,16 +161,28 @@ startBtn.addEventListener("click", countDown)
 
 })
 
-
-
-
 // end of game 
 function endScreen () {
   questionContainer.style.display = "none";
   gameOver.style.display = "block";
-  timer.style.display = "none";
+  time.style.display = "none";
 
 }
+
+
+
+
+//var score = 0;
+//var currentQ = 0;
+
+//function scoreKeeper() {
+  //var answer = correctIndex.id-1;
+  //if (questions[currentQ].correctIndex[i] === questions[currentQ].correctIndex[answer]) {
+    //score += 5;
+  //}else {
+    //timeLeft += 10;
+  //}
+  //};
 
 
 
